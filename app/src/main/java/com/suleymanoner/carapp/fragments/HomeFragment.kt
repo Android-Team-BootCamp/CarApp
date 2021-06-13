@@ -1,10 +1,11 @@
-package com.suleymanoner.carapp
+package com.suleymanoner.carapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.suleymanoner.carapp.R
 
 class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters

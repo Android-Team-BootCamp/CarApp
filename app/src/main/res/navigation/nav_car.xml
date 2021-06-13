@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.suleymanoner.carapp.HomeFragment"
+        android:name="com.suleymanoner.carapp.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.suleymanoner.carapp.FavoriteFragment"
+        android:name="com.suleymanoner.carapp.fragments.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
@@ -25,12 +25,12 @@
     </fragment>
     <fragment
         android:id="@+id/carDetailFragment"
-        android:name="com.suleymanoner.carapp.CarDetailFragment"
+        android:name="com.suleymanoner.carapp.fragments.CarDetailFragment"
         android:label="fragment_car_detail"
         tools:layout="@layout/fragment_car_detail" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.suleymanoner.carapp.SearchFragment"
+        android:name="com.suleymanoner.carapp.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
 </navigation>
