@@ -25,5 +25,7 @@ class ApiClient {
         client.addInterceptor(RequestInterceptor())
         return client.build()
     }
-
+    fun getDetailData(carsId:Int) :Single<Cars>{
+        return api.getCarsDetails(carsId)
+    }
 }
