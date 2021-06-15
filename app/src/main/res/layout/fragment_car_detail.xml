@@ -1,52 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="carsdetail"
+            type="com.suleymanoner.carapp.model.Cars"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.CountryFragment">
+
+        <ImageView
+            android:id="@+id/countryImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:imageUrl="@{carsdetail.image}"
+            android:paddingTop="10dp"
+            android:scaleType="fitCenter"
+            android:minHeight="200dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/countryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryImage"
+            android:text="@{carsdetail.name}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/countryCapital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryName"
+            android:text="@{carsdetail.price}"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/countryRegion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryCapital"
+            android:text="@{carsdetail.seat}"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/countryCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryRegion"
+            android:text="@{carsdetail.type}"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/countryLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryCurrency"
+            android:text="@{carsdetail.mpg}"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp">
+
+        </TextView>
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/countryList"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="1dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/countryError"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Error! Try Again"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-            </TextView>
-
-            <ProgressBar
-                android:id="@+id/countryLoading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
-
-            </ProgressBar>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </RelativeLayout>
 </layout>

@@ -39,7 +39,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 carsList.adapter=CarsAdapter(it){
                     val bundle = bundleOf("cars_details" to it)
                     Navigation.findNavController(view)
-                        .navigate(R.id.action_favoriteFragment_to_carDetailFragment,bundle)
+                        .navigate(R.id.action_homeFragment_to_carDetailFragment,bundle)
                 }
             }
         })
