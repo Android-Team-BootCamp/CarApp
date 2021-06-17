@@ -32,7 +32,7 @@ class FavoriteFragment : BaseVMFragment<CarsDetailViewModel>() {
             it?.let {
                 recyclerviewFavorites.layoutManager = GridLayoutManager(context!!, 2)
                 recyclerviewFavorites.adapter = CarsAdapter(it) {
-                    val bundle = bundleOf("movie_details" to it)
+                    val bundle = bundleOf("cars_details" to it)
                     Navigation.findNavController(view)
                         .navigate(R.id.action_favoriteFragment_to_carDetailFragment, bundle)
                 }
