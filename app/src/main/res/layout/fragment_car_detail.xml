@@ -39,6 +39,7 @@
 
         </TextView>
 
+
         <TextView
             android:id="@+id/countryCapital"
             android:layout_width="wrap_content"
@@ -87,6 +88,13 @@
 
         </TextView>
 
-
+        <ImageView
+            android:id="@+id/imgFavorite"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_favorite_border"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="557dp" />
     </RelativeLayout>
 </layout>
