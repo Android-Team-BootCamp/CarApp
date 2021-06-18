@@ -30,7 +30,7 @@ class FavoriteFragment : BaseVMFragment<CarsDetailViewModel>() {
 
         viewModel.getAllCars().observe(viewLifecycleOwner, Observer {
             it?.let {
-                recyclerviewFavorites.layoutManager = GridLayoutManager(context!!, 2)
+                recyclerviewFavorites.layoutManager = GridLayoutManager(context!!, 1)
                 recyclerviewFavorites.adapter = CarsAdapter(it) {
                     val bundle = bundleOf("cars_details" to it)
                     Navigation.findNavController(view)
