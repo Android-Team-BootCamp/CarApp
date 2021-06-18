@@ -15,5 +15,5 @@ interface ApiService {
     @GET("cars/{id}")
     fun getCarsDetails(@Path("id") carsId: Int): Single<Cars>
     @GET("Android-Team-BootCamp/carsjson/master/carsdb.json")
-    fun getSearchCars(@Query("query") search: String): Single<List<Cars>>
+    fun getSearchCars(@Query("query") name: String): Single<List<Cars>>
 }
