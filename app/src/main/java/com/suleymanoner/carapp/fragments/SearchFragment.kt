@@ -5,25 +5,67 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.suleymanoner.carapp.R
+import com.suleymanoner.carapp.adapter.SearchAdapter
+import com.suleymanoner.carapp.databinding.FragmentSearchBinding
+import com.suleymanoner.carapp.util.gone
+import com.suleymanoner.carapp.util.visible
+import com.suleymanoner.carapp.viewmodels.SearchViewModel
+import kotlinx.android.synthetic.main.fragment_search.*
 
 
-class SearchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun getLayoutRes(): Int = R.layout.fragment_search
 
-    }
+    override fun getViewModel(): Class<SearchViewModel> = SearchViewModel::class.java
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        super.onCreateView(inflater, container, savedInstanceState)
+        return dataBinding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        dataBinding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null && query.length > 0){
+                    viewModel.getSearchCars(query!!)
+                    dataBinding.imgSearch.gone()
+                    dataBinding.tvSearch.gone()
+                    dataBinding.recyclerviewSearch.visible()
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
+
+        dataBinding.searchView.setOnCloseListener(object : SearchView.OnCloseListener{
+            override fun onClose(): Boolean {
+                dataBinding.recyclerviewSearch.gone()
+                dataBinding.imgSearch.visible()
+                dataBinding.tvSearch.visible()
+                return false
+            }
+        })
+
+        viewModel.searchcars.observe(viewLifecycleOwner, Observer {searchMovie ->
+            searchMovie?.let {
+                recyclerviewSearch.layoutManager = LinearLayoutManager(context!!)
+                recyclerviewSearch.adapter = SearchAdapter(searchMovie)
+            }
+
+        })
+    }
+
 
 }

@@ -28,4 +28,8 @@ class ApiClient {
     fun getDetailData(carsId:Int) :Single<Cars>{
         return api.getCarsDetails(carsId)
     }
+
+    fun getSearchCars(name:String):Single<List<Cars>>{
+        return api.getSearchCars(name)
+    }
 }

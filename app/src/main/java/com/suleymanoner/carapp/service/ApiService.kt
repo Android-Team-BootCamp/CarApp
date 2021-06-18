@@ -4,6 +4,7 @@ import com.suleymanoner.carapp.model.Cars
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -11,6 +12,8 @@ interface ApiService {
     fun getCars(): Single<List<Cars>>
 
 
-    @GET("movie/{id}")
+    @GET("cars/{id}")
     fun getCarsDetails(@Path("id") carsId: Int): Single<Cars>
+    @GET("Android-Team-BootCamp/carsjson/master/carsdb.json")
+    fun getSearchCars(@Query("query") search: String): Single<List<Cars>>
 }
