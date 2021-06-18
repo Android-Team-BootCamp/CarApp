@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.suleymanoner.carapp.R
 import com.suleymanoner.carapp.adapter.SearchAdapter
@@ -61,7 +63,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
         viewModel.searchcars.observe(viewLifecycleOwner, Observer {searchMovie ->
             searchMovie?.let {
                 recyclerviewSearch.layoutManager = LinearLayoutManager(context!!)
-                recyclerviewSearch.adapter = SearchAdapter(searchMovie)
+                recyclerviewSearch.adapter = SearchAdapter(it){
+                    val bundle = bundleOf("cars_details" to it)
+                    Navigation.findNavController(view)
+                        .navigate(R.id.action_searchFragment_to_carDetailFragment,bundle)
+                }
+
             }
 
         })

@@ -10,8 +10,12 @@ import com.suleymanoner.carapp.model.Cars
 
 
 class SearchAdapter(
-    val searchList: List<Cars>) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+    val searchList: List<Cars>, val onItemClick:(Cars)->Unit) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
     class SearchViewHolder(val binding: ItemCarsBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(model: Cars, onItemClick: (Cars) -> Unit) {
+            itemView.setOnClickListener { onItemClick(model) }
+
+        }
 
     }
 
@@ -32,5 +36,6 @@ class SearchAdapter(
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         holder.binding.cars = searchList[position]
+        holder.bind(searchList[position],onItemClick)
     }
 }
