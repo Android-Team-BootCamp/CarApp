@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val deneme = "Deneme"
+        val deneme2 = "Deneme2"
 
 
     }
